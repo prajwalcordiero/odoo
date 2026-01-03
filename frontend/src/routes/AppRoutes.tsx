@@ -4,6 +4,7 @@ import Dashboard from '../components/Dashboard';
 import PlanTripPage from '../components/PlanTripPage';
 import RegionDetail from '../components/RegionDetail';
 import MyTrips from '../components/MyTrips';
+import Profile from '../components/Profile';
 
 interface AppRoutesProps {
   user: any;
@@ -31,6 +32,7 @@ const AppRoutes: React.FC<AppRoutesProps> = ({ user, setUser, setIsLoading }) =>
       
       {/* Catch-all: Redirect unknown paths to Home */}
       <Route path="*" element={<Navigate to="/" replace />} />
+      <Route path="/profile" element={<Profile user={user} setLoggedInUser={setUser} />} />
     </Routes>
   );
 };

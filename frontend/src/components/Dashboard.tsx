@@ -42,7 +42,10 @@ const Dashboard: React.FC<{ user: any; setLoggedInUser: (user: any) => void }> =
 
         <div className="user-nav-section">
           <span className="user-name">{user?.firstName} {user?.lastName}</span>
-          <div className="profile-avatar">{firstLetter}</div>
+          <div className="user-profile" onClick={() => navigate('/profile')} style={{ cursor: 'pointer' }}>
+    <span className="user-name-display">{user?.firstName}</span>
+       <div className="avatar-circle">{firstLetter}</div>
+      </div>
           <button className="logout-btn" onClick={() => setLoggedInUser(null)}>Logout</button>
         </div>
       </nav>
