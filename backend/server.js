@@ -9,6 +9,8 @@ app.use(cors({ origin: process.env.FRONTEND_URL }));
 
 mongoose.connect(process.env.MONGO_URI);
 
+// --- MODELS ---
+
 const userSchema = new mongoose.Schema({
   firstName: { type: String, required: true },
   lastName: { type: String, required: true },
@@ -21,6 +23,19 @@ const userSchema = new mongoose.Schema({
 });
 
 const User = mongoose.model('User', userSchema);
+
+// FIXED: Added the Trip Schema and Model
+const tripSchema = new mongoose.Schema({
+  tripName: { type: String, required: true },
+  destination: { type: String, required: true },
+  startDate: { type: String, required: true },
+  endDate: { type: String, required: true },
+  userEmail: { type: String, required: true } 
+});
+
+const Trip = mongoose.model('Trip', tripSchema);
+
+// --- ROUTES ---
 
 app.post('/register', async (req, res) => {
   try {
@@ -46,31 +61,27 @@ app.post('/login', async (req, res) => {
   }
 });
 
-<<<<<<< HEAD
-=======
-// Example Express route to save a trip
+// FIXED: Consolidated into one proper POST route
 app.post('/api/trips', async (req, res) => {
   try {
     const { tripName, destination, startDate, endDate, userEmail } = req.body;
-    // Save to your database (MongoDB/PostgreSQL example)
-    const newTrip = await Trip.create({ tripName, destination, startDate, endDate, userEmail });
+    const newTrip = new Trip({ tripName, destination, startDate, endDate, userEmail });
+    await newTrip.save();
     res.status(201).json({ success: true, trip: newTrip });
   } catch (error) {
+    console.error("Save Error:", error);
     res.status(500).json({ success: false, message: "Failed to save trip" });
   }
 });
 
-// Route to get all trips for a specific user
+// FIXED: Proper GET route to fetch trips by email
 app.get('/api/trips/:email', async (req, res) => {
-  const trips = await Trip.find({ userEmail: req.params.email });
-  res.json(trips);
+  try {
+    const trips = await Trip.find({ userEmail: req.params.email });
+    res.json(trips);
+  } catch (error) {
+    res.status(500).json({ success: false, message: "Error fetching trips" });
+  }
 });
 
-app.post('/api/trips', (req, res) => {
-    const tripData = req.body;
-    // Example: db.collection('trips').insertOne(tripData)...
-    res.json({ success: true });
-});
-
->>>>>>> 95b7230 (modified code)
 app.listen(process.env.PORT, () => console.log(`Running on ${process.env.PORT}`));
