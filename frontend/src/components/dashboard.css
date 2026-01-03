@@ -1,0 +1,207 @@
+/* Dashboard Main Wrapper */
+.dashboard-wrapper {
+  width: 100vw;
+  min-height: 100vh;
+  background-color: #f4f7f6; /* Soft light grey/blue */
+  color: #2d3748;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Navbar Styling */
+.navbar {
+  background: #ffffff;
+  padding: 0.8rem 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #3182ce; /* Primary Blue */
+  margin: 0;
+}
+
+.user-nav-section {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.user-name {
+  font-weight: 600;
+  color: #4a5568;
+}
+
+/* Personalized Letter Avatar */
+.profile-avatar {
+  width: 42px;
+  height: 42px;
+  background: linear-gradient(135deg, #4299e1 0%, #3182ce 100%);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+  border: 2px solid #fff;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.logout-btn {
+  background: transparent;
+  border: 1px solid #cbd5e1;
+  color: #718096;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  width: auto;
+  transition: all 0.2s;
+}
+
+.logout-btn:hover {
+  background: #fff5f5;
+  color: #e53e3e;
+  border-color: #feb2b2;
+}
+
+/* Banner Section */
+.banner {
+  width: 90%;
+  height: 280px;
+  margin: 25px auto;
+  background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), 
+              url('https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=1200&auto=format&fit=crop');
+  background-size: cover;
+  background-position: center;
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.banner-overlay {
+  text-align: center;
+  color: white;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+/* Search and Filters */
+.controls-row {
+  width: 90%;
+  margin: 0 auto 30px;
+  display: flex;
+  gap: 12px;
+}
+
+.search-bar {
+  flex: 3;
+  padding: 14px 20px;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  font-size: 1rem;
+  background: white;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+}
+
+.control-btn {
+  flex: 0;
+  padding: 0 25px;
+  background: white;
+  color: #4a5568;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.control-btn:hover {
+  background: #f7fafc;
+}
+
+/* Grids and Cards */
+.dashboard-section {
+  width: 90%;
+  margin: 0 auto 40px;
+}
+
+.section-title {
+  margin-bottom: 20px;
+  font-size: 1.3rem;
+  color: #2d3748;
+}
+
+.grid-container {
+  display: grid;
+  gap: 20px;
+}
+
+.regional-grid {
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.trips-grid {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.card {
+  background: white;
+  border-radius: 15px;
+  border: 1px solid #edf2f7;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+}
+
+.card-image-placeholder {
+  height: 100px;
+  background: #ebf8ff;
+}
+
+.card-image-placeholder.large {
+  height: 160px;
+}
+
+.card-label, .card-info {
+  padding: 12px;
+  text-align: center;
+  font-weight: 600;
+}
+
+/* Floating Action Button */
+.plan-trip-fab {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  background: #3182ce;
+  color: white;
+  padding: 16px 32px;
+  border-radius: 50px;
+  border: none;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 8px 20px rgba(49, 130, 206, 0.4);
+  width: auto;
+}
+
+.plus-icon {
+  font-size: 1.4rem;
+}
