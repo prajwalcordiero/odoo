@@ -1,0 +1,143 @@
+/* 1. Reset defaults so the background covers the whole screen */
+:root {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: #f0f2f5; /* Light travel-themed grey/blue */
+}
+
+#root {
+  width: 100%;       /* Takes full width of the screen */
+  margin: 0 auto;
+  padding: 0;        /* Removed the 2rem padding that was shrinking your content */
+  text-align: center;
+}
+
+/* 2. Main Wrapper to center your cards perfectly */
+.main-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100%;
+  background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%); /* Soft sky blue gradient */
+}
+
+/* 3. The Form Card Styling */
+.login-card, .registration-card {
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  max-width: 450px; /* Keeps the form from getting too wide on desktop */
+  margin: 20px;    /* Adds space on mobile */
+}
+
+/* 4. Input Fields */
+input, textarea {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  box-sizing: border-box; /* Crucial for alignment */
+}
+
+.form-row {
+  display: flex;
+  gap: 10px;
+}
+
+/* 5. Travel Blue Button */
+button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s;
+  width: 100%;
+}
+
+button:hover {
+  background-color: #0056b3;
+  transform: translateY(-1px);
+}
+
+.photo-placeholder {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: #e9ecef;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  color: #adb5bd;
+  border: 2px solid #dee2e6;
+}
+
+/* General Text Styling */
+h2 {
+  color: #1a2b3c; /* Deep navy/slate - professional travel look */
+  margin-bottom: 25px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+/* Input Text and Placeholder Styling */
+input, textarea {
+  width: 100%;
+  padding: 14px;
+  margin: 10px 0;
+  border: 1.5px solid #e2e8f0; /* Soft border */
+  border-radius: 10px;
+  font-size: 15px;
+  
+  /* The actual text the user types */
+  color: #2d3748; 
+  background-color: #ffffff;
+  transition: all 0.2s ease-in-out;
+}
+
+/* Placeholder Styling - Works across different browsers */
+input::placeholder, 
+textarea::placeholder {
+  color: #a0aec0; /* Soft silver-grey */
+  font-weight: 400;
+  opacity: 1; /* Ensures color displays correctly in Firefox */
+}
+
+/* Highlighting the field when the user clicks it */
+input:focus, textarea:focus {
+  outline: none;
+  border-color: #3182ce; /* Travel Blue */
+  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.15);
+  background-color: #fff;
+}
+
+/* Secondary Text (like "Don't have an account?") */
+.toggle-link {
+  margin-top: 20px;
+  color: #4a5568;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.toggle-link:hover {
+  color: #3182ce;
+  text-decoration: underline;
+}
