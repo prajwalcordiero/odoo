@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* 1. Reset defaults so the background covers the whole screen */
 :root {
   margin: 0;
@@ -98,20 +99,92 @@ h2 {
 }
 
 /* Input Text and Placeholder Styling */
+=======
+/* =========================
+    Global Reset & Root
+   ========================= */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  font-family: system-ui, -apple-system, sans-serif;
+  background-color: #f0f2f5;
+}
+
+#root {
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* =========================
+    Auth Layout (Centering)
+   ========================= */
+.auth-page-container, .auth-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
+  padding: 20px;
+}
+
+/* =========================
+    Login & Registration Cards
+   ========================= */
+.login-card, .registration-card {
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 24px;
+  box-shadow: 0 15px 35px rgba(49, 130, 206, 0.2); /* Slight blue tint shadow */
+  width: 100%;
+  max-width: 600px; /* Proper width for two-column layout */
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.login-card {
+  max-width: 420px; /* Login stays more compact */
+}
+
+/* =========================
+    Headings & Inputs
+   ========================= */
+h2 {
+  color: #1a2b3c;
+  margin-bottom: 25px;
+  font-weight: 700;
+  text-align: center;
+}
+
+>>>>>>> 95b7230 (modified code)
 input, textarea {
   width: 100%;
   padding: 14px;
   margin: 10px 0;
+<<<<<<< HEAD
   border: 1.5px solid #e2e8f0; /* Soft border */
   border-radius: 10px;
   font-size: 15px;
   
   /* The actual text the user types */
   color: #2d3748; 
+=======
+  border: 1.5px solid #e2e8f0;
+  border-radius: 10px;
+  font-size: 15px;
+  color: #2d3748;
+>>>>>>> 95b7230 (modified code)
   background-color: #ffffff;
   transition: all 0.2s ease-in-out;
 }
 
+<<<<<<< HEAD
 /* Placeholder Styling - Works across different browsers */
 input::placeholder, 
 textarea::placeholder {
@@ -135,9 +208,126 @@ input:focus, textarea:focus {
   cursor: pointer;
   font-size: 14px;
   font-weight: 500;
+=======
+input:focus, textarea:focus {
+  outline: none;
+  border-color: #3182ce;
+  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.15);
+}
+
+/* =========================
+    Registration Specifics
+   ========================= */
+.form-row {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.form-row input {
+  flex: 1;
+}
+
+.photo-placeholder-circle {
+  width: 120px;
+  height: 120px;
+  background-color: #f1f5f9;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 30px;
+  color: #94a3b8;
+  border: 1px solid #e2e8f0;
+}
+
+/* =========================
+    Buttons (Blue Theme)
+   ========================= */
+button, .register-submit-btn, .save-trip-btn {
+  width: 100%;
+  background-color: #3182ce; /* Theme Blue */
+  color: white;
+  border: none;
+  padding: 14px;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: all 0.2s ease;
+}
+
+button:hover, .register-submit-btn:hover, .save-trip-btn:hover {
+  background-color: #2b6cb0; /* Hover Blue */
+  transform: translateY(-1px);
+}
+
+.back-btn {
+  background: transparent;
+  color: #3182ce;
+  border: 1.5px solid #3182ce;
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-weight: 500;
+  width: fit-content;
+  margin-bottom: 20px;
+}
+
+.back-btn:hover {
+  background: #ebf8ff;
+  border-color: #2b6cb0;
+  color: #2b6cb0;
+  transform: none;
+}
+
+/* =========================
+    Plan Trip Page (Dark Theme)
+   ========================= */
+.plan-page-wrapper {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #111111;
+  color: white;
+  padding: 40px 20px;
+}
+
+.suggestions-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.suggestion-card {
+  border: 1px solid #ffffff;
+  border-radius: 12px;
+  height: 150px;
+}
+
+/* =========================
+    Utilities
+   ========================= */
+.toggle-link {
+  margin-top: 20px;
+  text-align: center;
+  color: #4a5568;
+  cursor: pointer;
+  font-size: 14px;
+>>>>>>> 95b7230 (modified code)
 }
 
 .toggle-link:hover {
   color: #3182ce;
   text-decoration: underline;
+<<<<<<< HEAD
+=======
+}
+
+@media (max-width: 480px) {
+  .form-row {
+    flex-direction: column;
+    gap: 0;
+  }
+>>>>>>> 95b7230 (modified code)
 }

@@ -46,4 +46,31 @@ app.post('/login', async (req, res) => {
   }
 });
 
+<<<<<<< HEAD
+=======
+// Example Express route to save a trip
+app.post('/api/trips', async (req, res) => {
+  try {
+    const { tripName, destination, startDate, endDate, userEmail } = req.body;
+    // Save to your database (MongoDB/PostgreSQL example)
+    const newTrip = await Trip.create({ tripName, destination, startDate, endDate, userEmail });
+    res.status(201).json({ success: true, trip: newTrip });
+  } catch (error) {
+    res.status(500).json({ success: false, message: "Failed to save trip" });
+  }
+});
+
+// Route to get all trips for a specific user
+app.get('/api/trips/:email', async (req, res) => {
+  const trips = await Trip.find({ userEmail: req.params.email });
+  res.json(trips);
+});
+
+app.post('/api/trips', (req, res) => {
+    const tripData = req.body;
+    // Example: db.collection('trips').insertOne(tripData)...
+    res.json({ success: true });
+});
+
+>>>>>>> 95b7230 (modified code)
 app.listen(process.env.PORT, () => console.log(`Running on ${process.env.PORT}`));
