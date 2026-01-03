@@ -1,0 +1,33 @@
+import React from 'react';
+import { Routes, Route, Navigate } from 'react-router-dom';
+import Dashboard from '../components/Dashboard';
+import PlanTripPage from '../components/PlanTripPage';
+
+interface AppRoutesProps {
+  user: any;
+  setUser: (user: any) => void;
+  setIsLoading: (loading: boolean) => void;
+}
+
+const AppRoutes: React.FC<AppRoutesProps> = ({ user, setUser, setIsLoading }) => {
+  return (
+    <Routes>
+      {/* 1. Dashboard Route */}
+      <Route 
+        path="/" 
+        element={user ? <Dashboard user={user} setLoggedInUser={setUser} /> : <Navigate to="/" />} 
+      />
+      
+      {/* 2. Plan Trip Page Route */}
+      <Route 
+        path="/plan-trip" 
+        element={user ? <PlanTripPage /> : <Navigate to="/" />} 
+      />
+
+      {/* 3. Fallback for any other URL */}
+      <Route path="*" element={<Navigate to="/" />} />
+    </Routes>
+  );
+};
+
+export default AppRoutes;

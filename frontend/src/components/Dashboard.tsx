@@ -1,5 +1,6 @@
 import React from 'react';
 import './dashboard.css';
+import { useNavigate } from 'react-router-dom';
 
 interface DashboardProps {
   user: any;
@@ -7,30 +8,23 @@ interface DashboardProps {
 }
 
 const Dashboard: React.FC<DashboardProps> = ({ user, setLoggedInUser }) => {
-  // Get the first letter of the user's name for the profile photo
+  const navigate = useNavigate();
+  
+  // Calculate avatar letter
   const firstLetter = user?.firstName?.charAt(0).toUpperCase() || '?';
-
-  const handleLogout = () => {
-    setLoggedInUser(null);
-  };
 
   return (
     <div className="dashboard-wrapper">
-      {/* Navigation Bar */}
       <nav className="navbar">
         <h1 className="logo">GlobalTrotter</h1>
         <div className="user-nav-section">
           <span className="user-name">{user.firstName} {user.lastName}</span>
-          <div className="profile-avatar">
-            {firstLetter}
-          </div>
-          <button className="logout-btn" onClick={handleLogout}>Logout</button>
+          <div className="profile-avatar">{firstLetter}</div>
+          <button className="logout-btn" onClick={() => setLoggedInUser(null)}>Logout</button>
         </div>
       </nav>
 
-      {/* Main Content Area */}
       <main className="dashboard-container">
-        {/* Banner with a travel background image */}
         <div className="banner">
           <div className="banner-overlay">
             <h2>Explore Your Next Destination</h2>
@@ -38,7 +32,6 @@ const Dashboard: React.FC<DashboardProps> = ({ user, setLoggedInUser }) => {
           </div>
         </div>
 
-        {/* Search and Controls */}
         <div className="controls-row">
           <input type="text" className="search-bar" placeholder="Search destinations..." />
           <button className="control-btn">Group by</button>
@@ -46,7 +39,6 @@ const Dashboard: React.FC<DashboardProps> = ({ user, setLoggedInUser }) => {
           <button className="control-btn">Sort by...</button>
         </div>
 
-        {/* Regional Selections Section */}
         <section className="dashboard-section">
           <h3 className="section-title">Top Regional Selections</h3>
           <div className="grid-container regional-grid">
@@ -59,7 +51,6 @@ const Dashboard: React.FC<DashboardProps> = ({ user, setLoggedInUser }) => {
           </div>
         </section>
 
-        {/* Previous Trips Section */}
         <section className="dashboard-section">
           <h3 className="section-title">Previous Trips</h3>
           <div className="grid-container trips-grid">
@@ -68,7 +59,6 @@ const Dashboard: React.FC<DashboardProps> = ({ user, setLoggedInUser }) => {
                 <div className="card-image-placeholder large"></div>
                 <div className="card-info">
                   <h4>Trip History {i}</h4>
-                  <span>View Details</span>
                 </div>
               </div>
             ))}
@@ -76,8 +66,8 @@ const Dashboard: React.FC<DashboardProps> = ({ user, setLoggedInUser }) => {
         </section>
       </main>
 
-      {/* Floating Action Button */}
-      <button className="plan-trip-fab">
+      {/* Navigation-based button */}
+      <button className="plan-trip-fab" onClick={() => navigate('/plan-trip')}>
         <span className="plus-icon">+</span> Plan a trip
       </button>
     </div>
